@@ -1,4 +1,4 @@
-[![Watch the video](https://img.youtube.com/vi/qQvngrwlgBo/maxresdefault.jpg)](https://youtu.be/qQvngrwlgBo)
+[![Watch the video](https://img.youtube.com/vi/jyGqIg1kZfM/maxresdefault.jpg)](https://youtu.be/jyGqIg1kZfM)
 
 <h2>Description:</h2>
 This is a testbed project aiming to showcase some of my gameplay programming skills in Unreal Engine 5.
