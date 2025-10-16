@@ -5,8 +5,6 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "LedgeClimbComponent.generated.h"
-
-
 class ACharacterTestCharacter;
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent), Blueprintable)
@@ -47,6 +45,9 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	float MantleFromBelowHeightThreshold = 100;
+
+	UPROPERTY(EditAnywhere)
+	float CameraInterpSpeed = 10.f;
 
 	UPROPERTY(EditAnywhere)
 	FVector MantleHandAdjustment{4.0f, 0.f, 10.f};

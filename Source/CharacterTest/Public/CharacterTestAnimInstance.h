@@ -17,12 +17,15 @@ class CHARACTERTEST_API UCharacterTestAnimInstance : public UAnimInstance
 public:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	bool bIsDashing;
-
-	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	bool bIsLedgeClimbing;
 	
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	bool bJumped;
+	
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
+	bool bIsWallRunningLeft;
+	
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
+	bool bIsWallRunningRight;
 
 	void SetJumpTrigger();
 

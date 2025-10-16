@@ -13,8 +13,4 @@ void UCharacterTestAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 {
 	Super::NativeUpdateAnimation(DeltaSeconds);
 
-	if (bJumped && GetWorld()->TimeSeconds - JumpTriggerTime > DeltaSeconds * 3)
-	{
-		bJumped = false;
-	}
 }

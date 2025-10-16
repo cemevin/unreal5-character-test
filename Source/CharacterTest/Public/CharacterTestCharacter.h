@@ -101,6 +101,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Input")
 	virtual void DoJumpEnd();
 
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnJumpAttempted);
+
+	UPROPERTY(BlueprintAssignable, Category="Input")
+	FOnJumpAttempted OnJumpAttempted;
+
 public:
 
 	/** Returns CameraBoom subobject **/

@@ -63,7 +63,15 @@ void UDashComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorC
 			else
 			{
 				float FOV = FMath::InterpEaseInOut(CachedFOV, DashFOV, Alpha, 3.f);
-				UGameplayStatics::GetPlayerCameraManager(this, 0)->SetFOV(FOV);	
+				UGameplayStatics::GetPlayerCameraManager(this, 0)->SetFOV(FOV);
+
+				if (bLerpCameraRotationToPlayer)
+				{
+					FRotator CameraRot = CharacterOwner->GetControlRotation();
+					FRotator TargetCameraRot = CameraRot;
+					TargetCameraRot.Yaw = CharacterOwner->GetActorRotation().Yaw;
+					CharacterOwner->GetController()->SetControlRotation(FMath::RInterpTo(CameraRot, TargetCameraRot, DeltaTime, CameraInterpSpeed));
+				}
 			}
 			
 		}
@@ -81,9 +89,13 @@ void UDashComponent::DoDash()
 	LastTimeDashed = GetWorld()->TimeSeconds;
 
 	auto* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
-	FRotator ControlRotation = PlayerController->GetControlRotation();
-	ControlRotation.Roll = ControlRotation.Pitch = 0;
-	CharacterOwner->SetActorRotation(ControlRotation);
+
+	if (bDashTowardsControllerRotation)
+	{
+		FRotator ControlRotation = PlayerController->GetControlRotation();
+		ControlRotation.Roll = ControlRotation.Pitch = 0;
+		CharacterOwner->SetActorRotation(ControlRotation);	
+	}
 
 	CachedFOV = UGameplayStatics::GetPlayerCameraManager(this, 0)->GetFOVAngle();
 

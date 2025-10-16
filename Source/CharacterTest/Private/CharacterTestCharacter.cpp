@@ -13,7 +13,7 @@
 #include "CharacterTest.h"
 #include "Public/CharacterTestAnimInstance.h"
 #include "MotionWarpingComponent.h"
-#include "Components/DashComponent.h"
+#include "Public/Components/DashComponent.h"
 
 ACharacterTestCharacter::ACharacterTestCharacter()
 {
@@ -145,6 +145,7 @@ void ACharacterTestCharacter::DoLook(float Yaw, float Pitch)
 void ACharacterTestCharacter::DoJumpStart()
 {
 	// signal the character to jump
+	OnJumpAttempted.Broadcast(); // used for external components
 	Jump();
 }
 

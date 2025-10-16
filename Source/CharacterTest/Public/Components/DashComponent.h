@@ -36,6 +36,15 @@ protected:
 	
 	UPROPERTY(EditAnywhere, Category="Movement|Dash")
 	float DashFOV = 130;
+	
+	UPROPERTY(EditAnywhere, Category="Movement|Dash")
+	bool bDashTowardsControllerRotation = true;
+	
+	UPROPERTY(EditAnywhere, Category="Movement|Dash")
+	bool bLerpCameraRotationToPlayer = false;
+	
+	UPROPERTY(EditAnywhere, Category="Movement|Dash", meta=(EditCondition="bLerpCameraRotationToPlayer"))
+	float CameraInterpSpeed = 10;
 
 public:
 

@@ -126,5 +126,12 @@ void ULedgeClimbComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 			}
 		}
 	}
+	else if (IsLedgeClimbing())
+	{
+		FRotator CameraRot = CharacterOwner->GetControlRotation();
+		FRotator TargetCameraRot = CameraRot;
+		TargetCameraRot.Yaw = CharacterOwner->GetActorRotation().Yaw;
+		CharacterOwner->GetController()->SetControlRotation(FMath::RInterpTo(CameraRot, TargetCameraRot, DeltaTime, CameraInterpSpeed));
+	}
 }
 
